@@ -1,20 +1,29 @@
-import { useState } from 'react'
-import Header from './components/Header'
-import SideBar from './components/SideBar'
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import Home from "./Pages/Home";
+import Cities from "./Pages/Cities"
+import NotFound from "./Pages/NotFound";
+import StandarLayout from "./Layouts/StandarLayout";
 
-import './App.css'
+
+const router = createBrowserRouter([
+  {
+    element: <StandarLayout> </StandarLayout>,
+    children: [
+      { path: "/", element: <Home></Home> },
+      { path: "/home", element: <Home></Home> },
+      { path: "/cities", element: <Cities></Cities> },
+    ],
+  },
+  { path: "/*", element: <NotFound></NotFound> },
+]);
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      
-      <Header></Header>
-      <SideBar></SideBar>
-
+      <RouterProvider router={router}></RouterProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

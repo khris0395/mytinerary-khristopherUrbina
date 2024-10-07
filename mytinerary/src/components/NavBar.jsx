@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
+import { NavLink } from "react-router-dom";
 
-const Header = () => {
+const routes = [
+  { to: "/", text: "Home" },
+  { to: "/cities", text: "Cities" },
+];
+
+function NavBar(){
   
   const [abrirHamburguesa, setAbrirHamburguesa] = useState(false);
 
@@ -9,18 +15,21 @@ const Header = () => {
   };
 
   return (
-    <header className=" fixed  z-10 bg-gray-600 text-white shadow-md w-screen ">
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+    <nav className=" fixed bg-gray-600 text-white shadow-md w-screen z-20">
+      <ul className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold">
           <a href="/">My Tinerary</a>
         </div>
 
         {/* NavBar */}
 
-        <nav className="hidden md:flex space-x-6 items-center">
+        <div className="hidden md:flex space-x-6 items-center">
 
-            <a href="/" className="hover:text-gray-200">Home</a>
-            <a href="/about" className="hover:text-gray-200">Cities</a>
+          {routes.map((rout,index) => (
+
+            <NavLink key={index} to={rout.to} className= {`hover:text-gray-200 ${(({isActive})=> isActive ? "text-gray-800":"")}`} >{rout.text}</NavLink>
+
+          ))}
 
             <a href="/"  className="hidden md:flex justify-between items-center">
                 
@@ -28,14 +37,14 @@ const Header = () => {
                     <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/>
                 </svg>
 
-                <div className='px-2'>
+                <div className="px-2">
 
-                    <p className='font-bold'>Login</p>
+                    <p className="font-bold">Login</p>
 
                 </div>
             </a>
 
-        </nav>
+        </div>
 
         {/* boton hamburguesa */}
         <div className="md:hidden">
@@ -57,7 +66,7 @@ const Header = () => {
           </button>
         </div>
         
-      </div>
+      </ul>
 
       {/* NavBar Responsive */}
       
@@ -72,7 +81,7 @@ const Header = () => {
                     </svg>
 
 
-                    <div className=''>
+                    <div>
 
                         <p className='font-bold'>Login</p>
 
@@ -81,13 +90,16 @@ const Header = () => {
 
             </div>
 
-          <nav className="flex flex-col items-center space-y-4 py-4">
-            <a href="/" className="hover:text-gray-200">Home</a>
-            <a href="/about" className="hover:text-gray-200">Cities</a>
-          </nav>
+          <div className="flex flex-col items-center space-y-4 py-4">
+            {routes.map((rout,index) => (
+
+              <NavLink key={index} to={rout.to} className= {`hover:text-gray-200 ${(({isActive})=> isActive ? "text-gray-800":"")}`} >{rout.text}</NavLink>
+
+              ))}
+          </div>
         </div>
-    </header>
+    </nav>
   );
 };
 
-export default Header;
+export default NavBar
