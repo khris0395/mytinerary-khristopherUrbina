@@ -2,6 +2,7 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import NavBar from "../Components/NavBar";
 import SideBar from "../components/SideBar";
+import Footer from "../Pages/Footer";
 
 export default function StandarLayout() {
   return (
@@ -18,9 +19,9 @@ export default function StandarLayout() {
 
         </main>
         <footer>
-            <h2>
-            <footer className="flex w-full h-32 items-center justify-center bg-black text-white">soy el footer</footer>
-            </h2>
+
+            <Footer></Footer>
+            
         </footer>
 
     </>
