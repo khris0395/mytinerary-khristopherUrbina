@@ -54,7 +54,7 @@ function Carousel(){
 
     return (
         <div className="container mx-auto pt-16 pb-14">
-            <h2 className="text-gray-400 text-4xl font-bold text-center mb-8">Popular Mytineraries</h2>
+            <h2 className="text-gray-200 text-4xl font-bold text-center mb-8">Popular Cities</h2>
 
             {/* Contenedor del carrusel */}
             <div className="overflow-hidden relative">
@@ -88,7 +88,7 @@ function Carousel(){
                                 {chunk.map((city, index) => (
                                     <div key={index} className="relative">
                                     <img src={city.img} alt={city.name} className="w-full h-full object-cover rounded-lg" />
-                                    <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-center rounded-lg py-3">
+                                    <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-xl font-semibold text-center rounded-lg py-3">
                                         {city.name}
                                     </div>
                                     </div>

@@ -18,7 +18,7 @@ function NavBar(){
     <nav className=" fixed bg-black text-white shadow-md w-screen h-auto z-30">
       <ul className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold">
-          <a href="/">My Tinerary</a>
+          <a href="/">MyTinerary</a>
         </div>
 
         {/* NavBar */}
