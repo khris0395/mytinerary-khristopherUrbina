@@ -20,7 +20,7 @@ function Footer(){
         </div>
   
         <div className="mt-6 text-center text-gray-500 text-sm">
-          &copy; 2024 MyTineraries. Todos los derechos reservados.
+          &copy; 2024 MyTineraries. All rights reserved.
         </div>
       </footer>
     );

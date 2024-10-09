@@ -14,7 +14,7 @@ function AdventureCard(){
             <div class="flex items-center bg-gray-400 border border-gray-500 rounded-md overflow-hidden shadow-md w-1/2">
                 <input 
                     type="text" 
-                    placeholder="Buscar..."
+                    placeholder="Search..."
                     class="px-4 py-2 w-full outline-none text-gray-800"
                 />
                 <button class="px-2 py-2 bg-gray-600 text-white hover:bg-gray-700 transition duration-300">
