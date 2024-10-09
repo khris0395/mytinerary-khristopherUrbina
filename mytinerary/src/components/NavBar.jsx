@@ -15,7 +15,7 @@ function NavBar(){
   };
 
   return (
-    <nav className=" fixed bg-black text-white shadow-md w-screen h-auto z-30">
+    <nav className=" fixed bg-black opacity-90 text-white shadow-md w-screen h-20 z-30">
       <ul className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold">
           <a href="/">MyTinerary</a>
@@ -70,7 +70,7 @@ function NavBar(){
 
       {/* NavBar Responsive */}
       
-        <div className={`md:hidden bg-gray-950 transition-all duration-1000 ease-in-out ${abrirHamburguesa ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+        <div className={`md:hidden bg-black transition-all duration-1000 ease-in-out ${abrirHamburguesa ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
             
             <div className="flex flex-col items-center space-y-4 py-4">
 

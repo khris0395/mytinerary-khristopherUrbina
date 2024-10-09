@@ -2,7 +2,7 @@ function Cities(){
 
     return (
 
-        <div className="h-20">Soy Cities</div>
+        <div className="h-screen "> Cities</div>
 
     )
 
