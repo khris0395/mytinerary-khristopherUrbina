@@ -48,10 +48,10 @@ function NavBar(){
 
         {/* boton hamburguesa */}
         <div className="md:hidden">
-          <button onClick={cambioHamburguesa} className="focus:outline-none"  /* clases o propiedad sin aparente utilidad*/>
+          <button onClick={cambioHamburguesa} className="focus:outline-none px-6">
             <svg
               className="w-6 h-6"
-              fill="none"  /* clases o propiedad sin aparente utilidad*/
+              fill="none"  
               stroke="currentColor"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
@@ -93,7 +93,7 @@ function NavBar(){
           <div className="flex flex-col items-center space-y-4 py-4">
             {routes.map((rout,index) => (
 
-              <NavLink key={index} to={rout.to} className= {`${(({isActive})=> isActive ? "text-red-800":"")}hover:text-gray-200 `} >{rout.text}</NavLink>
+              <NavLink key={index} to={rout.to} className= "hover:text-gray-200" >{rout.text}</NavLink>
 
               ))}
           </div>

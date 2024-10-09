@@ -4,10 +4,7 @@ function Footer(){
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
           {/* Enlaces de navegación */}
           <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 text-center">
-            <a href="#" className="hover:text-white transition duration-300">About Us
-
-
-</a>
+            <a href="#" className="hover:text-white transition duration-300">About Us</a>
             <a href="#" className="hover:text-white transition duration-300">Contact Us</a>
             <a href="#" className="hover:text-white transition duration-300">My Tineraries</a>
             <a href="#" className="hover:text-white transition duration-300">Popular Cities</a>
