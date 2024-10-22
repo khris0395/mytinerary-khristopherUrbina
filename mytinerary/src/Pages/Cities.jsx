@@ -1,8 +1,12 @@
+import SearchCities from "../components/SearchCities"
+
 function Cities(){
 
     return (
 
-        <div className="h-screen "> Cities</div>
+        <div  className="bg-zinc-700"> 
+            <SearchCities></SearchCities>
+        </div>
 
     )
 

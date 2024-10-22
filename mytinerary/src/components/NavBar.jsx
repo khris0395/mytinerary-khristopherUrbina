@@ -8,13 +8,14 @@ const routes = [
 
 function NavBar(){
   
-  const [abrirHamburguesa, setAbrirHamburguesa] = useState(false);
+  const [openHamburguer, setOpenHamburguer] = useState(false);
 
-  const cambioHamburguesa = () => {
-    setAbrirHamburguesa(!abrirHamburguesa);
+  const changeHamburguer = () => {
+    setOpenHamburguer(!openHamburguer);
   };
 
   return (
+
     <nav className=" fixed bg-black opacity-90 text-white shadow-md w-screen h-20 z-30">
       <ul className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold">
@@ -48,7 +49,7 @@ function NavBar(){
 
         {/* boton hamburguesa */}
         <div className="md:hidden">
-          <button onClick={cambioHamburguesa} className="focus:outline-none px-6">
+          <button onClick={changeHamburguer} className="focus:outline-none px-6">
             <svg
               className="w-6 h-6"
               fill="none"  
@@ -70,7 +71,7 @@ function NavBar(){
 
       {/* NavBar Responsive */}
       
-        <div className={`md:hidden bg-black transition-all duration-1000 ease-in-out ${abrirHamburguesa ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+        <div className={`md:hidden bg-black transition-all duration-1000 ease-in-out ${openHamburguer ? 'max-h-80 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
             
             <div className="flex flex-col items-center space-y-4 py-4">
 
@@ -99,6 +100,7 @@ function NavBar(){
           </div>
         </div>
     </nav>
+ 
   );
 };
 
