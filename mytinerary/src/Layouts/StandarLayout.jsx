@@ -3,10 +3,12 @@ import { Outlet } from "react-router-dom";
 import NavBar from "../Components/NavBar";
 import SideBar from "../components/SideBar";
 import Footer from "../components/Footer";
+import ScrollToTop from "../components/ScrollToTop";
 
 export default function StandarLayout() {
   return (
     <>   
+        <ScrollToTop />
         <header>
 
             <NavBar></NavBar>
