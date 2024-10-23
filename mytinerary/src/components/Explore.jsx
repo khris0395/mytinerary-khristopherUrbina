@@ -8,6 +8,8 @@ function Explore(){
     const object = location.state
     console.log(object);
 
+    //funcion para regresar a la pagina anterior
+
     function navigateBack(){
         navigate(-1)
       }

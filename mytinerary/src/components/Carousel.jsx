@@ -50,14 +50,13 @@ function Carousel(){
     
     const cityChunks = chunkArray(cities, 4);
 
-      //Renderizacion del Componente
 
     return (
         <div className="container mx-auto md:w-1/2 pt-16 pb-14">
 
             <h2 className="text-gray-200 text-4xl font-bold text-center mb-8">Popular Cities</h2>
 
-            {/* Contenedor del carrusel */}
+            {/* contenedor del carousel */}
             <div className="relative">
 
                 <button
@@ -97,7 +96,6 @@ function Carousel(){
                             </div>
                         ))}
 
-                        {/* Botones de navegación */}
                     </div>
 
                 </div>

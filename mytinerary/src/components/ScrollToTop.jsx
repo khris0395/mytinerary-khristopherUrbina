@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
+// funcion para controlar la posicion inicial del scroll
+
 function ScrollToTop() {
   const { pathname } = useLocation();
 

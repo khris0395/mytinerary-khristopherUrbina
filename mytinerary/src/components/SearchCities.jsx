@@ -3,16 +3,19 @@ import { useNavigate, useLocation } from 'react-router-dom'
 
 function SearchCities(){
 
-  const [name, setName] = useState(""); // El estado del input de búsqueda
-  const [results, setResults] = useState([]); // El estado de los resultados de la API
-  const navigate = useNavigate();
+  const [name, setName] = useState(""); // estado del input de busqeda
+  const [results, setResults] = useState([]); // estado de los resultados de la api
+  const navigate = useNavigate(); // estado de la informacion enviada al details
+
+  // funcion que controla el envio de informacion al details
   
   function handleClickDetails(object) {
   
     navigate("/details" , {state: object})
+
   }
 
-  // Función para hacer el fetch
+  // funcion para hacer el fetch con cada cambio del input
   const fetchResults = (searchName) => {
     const url = `http://localhost:8080/api/cities/allCities?name=${searchName}`;
     
@@ -22,19 +25,20 @@ function SearchCities(){
       .catch((error) => console.error("Error fetching data:", error));
   };
 
-  // Fetch inicial al cargar la página para obtener todos los resultados
+
+  // fetch inicial para cargar la página para obtener todos los resultados
   useEffect(() => {
 
     fetchResults("");
 
   }, []);
 
-  // Función para manejar cambios en el input de búsqueda
+  // funcion para manejar cambios en el input
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
     setName(inputValue);
     
-    // Hacer un fetch de los datos filtrados cada vez que cambia el input
+    // hacer un fetch cada vez que cambia el input
     fetchResults(inputValue);
   };
 
@@ -70,7 +74,7 @@ function SearchCities(){
         className=" bg-gray-500 border p-2 rounded-md w-full"
       />
 
-      {/* Renderizacion de los resultados */}
+      {/* renderizacion de los resultados */}
 
       <h2 className="text-3xl font-bold my-8 text-center">Popular Destinations</h2>
         {results.length > 0 ? (
