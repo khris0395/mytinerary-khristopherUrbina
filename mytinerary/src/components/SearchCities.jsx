@@ -16,13 +16,14 @@ function SearchCities(){
   }
 
   // funcion para hacer el fetch con cada cambio del input
-  const fetchResults = (searchName) => {
+  const fetchResults = async (searchName) => {
     const url = `http://localhost:8080/api/cities/allCities?name=${searchName}`;
-    
-    fetch(url)
+
+       await fetch(url)
       .then((response) => response.json())
       .then((data) => setResults(data.response))
       .catch((error) => console.error("Error fetching data:", error));
+ 
   };
 
 
