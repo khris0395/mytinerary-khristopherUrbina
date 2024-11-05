@@ -16,7 +16,7 @@ function Explore(){
 
     return(
 
-        <div className="relative h-screen w-screen">
+        <div className="relative h-screen">
             <img
                 className="absolute inset-0 w-full h-full object-cover  bg-black opacity-50"
                 src={object.photo}
@@ -29,11 +29,9 @@ function Explore(){
                 {object.name}
                 </h1>
 
-                <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6">
-                Under Construction... 🚧
-                </h2>
+              
                 <p className="text-2xl text-gray-200 mb-12 max-w-2xl">
-                We're working hard to bring you something amazing. Please check back later.
+                {object.description}
                 </p>
                 <button onClick={()=>navigateBack()} className="bg-zinc-600 text-white font-semibold py-4 px-10 rounded-full hover:bg-zinc-700 hover:scale-105 transform transition duration-300 ease-in-out shadow-xl">
                 Back to Cities

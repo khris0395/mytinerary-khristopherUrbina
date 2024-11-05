@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCities } from "../store/actions/actionFetchCities";
 
 function SearchCities(){
 
-  const [name, setName] = useState(""); // estado del input de busqeda
-  const [results, setResults] = useState([]); // estado de los resultados de la api
+  const dispatch = useDispatch();
+  const { cities, loading, error } = useSelector((state) => state.cities);
   const navigate = useNavigate(); // estado de la informacion enviada al details
 
   // funcion que controla el envio de informacion al details
@@ -15,33 +17,10 @@ function SearchCities(){
 
   }
 
-  // funcion para hacer el fetch con cada cambio del input
-  const fetchResults = async (searchName) => {
-    const url = `http://localhost:8080/api/cities/allCities?name=${searchName}`;
-
-       await fetch(url)
-      .then((response) => response.json())
-      .then((data) => setResults(data.response))
-      .catch((error) => console.error("Error fetching data:", error));
- 
-  };
-
-
-  // fetch inicial para cargar la página para obtener todos los resultados
   useEffect(() => {
+    dispatch(fetchCities(""));
+  }, [dispatch]);
 
-    fetchResults("");
-
-  }, []);
-
-  // funcion para manejar cambios en el input
-  const handleInputChange = (event) => {
-    const inputValue = event.target.value;
-    setName(inputValue);
-    
-    // hacer un fetch cada vez que cambia el input
-    fetchResults(inputValue);
-  };
 
   return (<>
 
@@ -69,8 +48,8 @@ function SearchCities(){
 
       <input
         type="text"
-        value={name}
-        onChange={handleInputChange}
+        //value={name}
+        onChange={(e)=>dispatch(fetchCities(e.target.value))}
         placeholder="Search for a city..."
         className=" bg-gray-500 border p-2 rounded-md w-full"
       />
@@ -78,9 +57,13 @@ function SearchCities(){
       {/* renderizacion de los resultados */}
 
       <h2 className="text-3xl font-bold my-8 text-center">Popular Destinations</h2>
-        {results.length > 0 ? (
+
+      {loading && <p>Loading...</p>} {/* Mostrar mensaje de carga */}
+      {error && <p>Error: {error}</p>} {/* Mostrar mensaje de error */}
+
+        {cities.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {results.map((card) => (
+              {cities.map((card) => (
                 <div key={card._id} className="bg-zinc-400 rounded-lg shadow-lg overflow-hidden transform transition duration-500 hover:scale-105">
                 <img className="w-full h-48 object-cover" src={card.photo} alt={card.name} />
                 <div className="p-6">

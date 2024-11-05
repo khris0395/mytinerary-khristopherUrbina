@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
 
-const routes = [
-  { to: "/", text: "Home" },
-  { to: "/cities", text: "Cities" },
-];
-
 function NavBar(){
+
+  const routes = [
+    { to: "/", text: "Home" },
+    { to: "/cities", text: "Cities" },
+  ];
   
   const [openHamburguer, setOpenHamburguer] = useState(false);
 
@@ -16,7 +16,7 @@ function NavBar(){
 
   return (
 
-    <nav className=" fixed bg-black opacity-90 text-white shadow-md w-screen h-20 z-30">
+    <nav className=" fixed bg-black opacity-90 text-white shadow-md w-full h-20 z-30">
       <ul className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="text-2xl font-bold">
           <a href="/">MyTinerary</a>

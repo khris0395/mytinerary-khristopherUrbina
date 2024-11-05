@@ -1,23 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCities } from "../store/actions/actionFetchCities";
 
-// Lista de ciudades e imágenes (puedes cambiar las URLs)
-const cities = [
-    { name: 'New York', img: 'https://i.pinimg.com/originals/f9/b9/8e/f9b98ecc59ebabadeb9f47822ddb1cb2.jpg' },
-    { name: 'Paris', img: 'https://i.pinimg.com/originals/d2/79/75/d279756f716d031bbc142bba3ba557ca.jpg' },
-    { name: 'London', img: 'https://plus.unsplash.com/premium_photo-1682799116921-de130f76c1d0?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Zm9uZG8lMjBkZSUyMHBhbnRhbGxhJTIwbG9uZHJlc3xlbnwwfHwwfHx8MA%3D%3D' },
-    { name: 'Tokyo', img: 'https://images.unsplash.com/photo-1542051841857-5f90071e7989?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8Mnx8fGVufDB8fHx8fA%3D%3D' },
-    { name: 'Sydney', img: 'https://plus.unsplash.com/premium_photo-1697730198238-48ee2f2fe1b7?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c3lkbmV5fGVufDB8fDB8fHww' },
-    { name: 'Dubai', img: 'https://plus.unsplash.com/premium_photo-1661916762370-4768aa1fc4c4?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8ZHViYWl8ZW58MHx8MHx8fDA%3D' },
-    { name: 'Rome', img: 'https://plus.unsplash.com/premium_photo-1661963265512-73e8d1053b9a?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cm9tYSUyMGl0YWxpYXxlbnwwfHwwfHx8MA%3D%3D' },
-    { name: 'Amsterdam', img: 'https://top20.amsterdam/images/redlightdistrict.jpg' },
-    { name: 'Berlin', img: 'https://previews.123rf.com/images/rudi1976/rudi19761406/rudi1976140600008/29303810-berl%C3%ADn-vista-a%C3%A9rea-de-berl%C3%ADn-durante-el-hermoso-atardecer.jpg' },
-    { name: 'Hong Kong', img: 'https://media.istockphoto.com/id/629604122/es/foto/paisaje-urbano-de-hong-kong-y-junkboat-en-crep%C3%BAsculo.jpg?s=612x612&w=0&k=20&c=PaIwDzYq_JRDe-aqKENWW8LEv5zbuKTyt_ojYA3UHZw=' },
-    { name: 'Barcelona', img: 'https://cdn.pixabay.com/photo/2016/03/24/07/31/spain-1276209_640.jpg' },
-    { name: 'Rio de Janeiro', img: 'https://st2.depositphotos.com/6644020/11217/i/950/depositphotos_112172136-stock-photo-rio-de-janeiro-aerial.jpg' }
-];
 
 function Carousel(){
     const [currentSlide, setCurrentSlide] = useState(0);
+    const dispatch = useDispatch();
+    const { cities } = useSelector((state) => state.cities);
+
+    useEffect(() => {
+        dispatch(fetchCities(""));
+      }, [dispatch]);
 
     // Cambiar automáticamente cada 5 segundos
     useEffect(() => {
@@ -35,7 +28,7 @@ function Carousel(){
 
     // Mover a la slide anterior
     const prevSlide = () => {
-             setCurrentSlide((prevSlide) => (prevSlide - 1 + 3) % 3) // Asegurar que sea circular
+             setCurrentSlide((prevSlide) => (prevSlide - 1 + 3) % 3)
     };
 
     //Empaquetar el array en un nuevo array de 4x4
@@ -87,7 +80,7 @@ function Carousel(){
                             <div key={chunkIndex} className="w-full flex-shrink-0 grid md:grid-cols-2 gap-4 ">
                                 {chunk.map((city, index) => (
                                     <div key={index} className="relative">
-                                    <img src={city.img} alt={city.name} className="w-full h-full object-cover rounded-lg" />
+                                    <img src={city.photo} alt={city.name} className="w-full h-full object-cover rounded-lg" />
                                     <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white text-xl font-semibold text-center rounded-lg py-3">
                                         {city.name}
                                     </div>
