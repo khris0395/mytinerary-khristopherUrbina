@@ -48,7 +48,6 @@ function SearchCities(){
 
       <input
         type="text"
-        //value={name}
         onChange={(e)=>dispatch(fetchCities(e.target.value))}
         placeholder="Search for a city..."
         className=" bg-gray-500 border p-2 rounded-md w-full"

@@ -41,6 +41,7 @@ function Itineraries() {
                   />
                   <div className="p-4">
                     <h3 className="text-lg font-bold">{itinerary.userName}</h3>
+                    <h2 className="text-lg text-cyan-950 font-bold">{itinerary.title}</h2>
                     <div className="flex items-center space-x-2">
                       <span className="text-yellow-500">{itinerary.price}</span>
                     </div>
