@@ -30,7 +30,7 @@ function Itineraries() {
         {error && <p>Error: {error}</p>} {/* Mostrar mensaje de error */}
         
         {itineraries.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-4">
             {itineraries.map((itinerary) => (
               <div className='relative' key={itinerary._id}>
                 <div className="bg-zinc-600 rounded-lg shadow-lg flex justify-center">

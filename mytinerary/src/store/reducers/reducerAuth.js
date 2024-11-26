@@ -1,10 +1,11 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { login, setUser,logout } from "../actions/actionAuth";
+import { login, setUser,logout, registerUser } from "../actions/actionAuth";
 
 const initialState = {  
     loading : false,
     error : false,
     user : null,
+    successMessage: null,
     token : null
 }
 
@@ -41,7 +42,24 @@ const initialState = {
         localStorage.removeItem("token");
         state.user = null,
         state.token = null
-    })
+    }) 
+    
+    .addCase(registerUser.pending, (state) => {
+        state.loading = true;
+        state.error = null; // Limpiar errores previos
+        state.successMessage = null; // Limpiar mensajes de éxito previos
+      })
+      
+    .addCase(registerUser.fulfilled, (state, action) => {
+        state.loading = false;
+        state.user = action.payload;
+        state.successMessage = 'Registro exitoso!';
+      })
+    
+    .addCase(registerUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload || 'Error desconocido';
+      });
 
 })
 
