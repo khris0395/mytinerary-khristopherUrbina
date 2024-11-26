@@ -46,19 +46,19 @@ const initialState = {
     
     .addCase(registerUser.pending, (state) => {
         state.loading = true;
-        state.error = null; // Limpiar errores previos
-        state.successMessage = null; // Limpiar mensajes de éxito previos
+        state.error = null; 
+        state.successMessage = null;
       })
       
     .addCase(registerUser.fulfilled, (state, action) => {
         state.loading = false;
         state.user = action.payload;
-        state.successMessage = 'Registro exitoso!';
+        state.successMessage = 'Registration successful!';
       })
     
     .addCase(registerUser.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.payload || 'Error desconocido';
+        state.error = action.payload || 'Unknown error';
       });
 
 })

@@ -35,10 +35,10 @@ const registerUser = createAsyncThunk(
           "http://localhost:8080/api/users/register", 
           userData
         );
-        return response.data; // En caso de éxito, devolvemos los datos
+        return response.data; 
       } catch (error) {
-        // Si ocurre un error, devolvemos el mensaje de error
-        return rejectWithValue(error.response?.data?.messages || "Error desconocido");
+
+        return rejectWithValue(error.response?.data?.messages || "Unknown error");
       }})
 
 export {login,setUser,logout, registerUser};

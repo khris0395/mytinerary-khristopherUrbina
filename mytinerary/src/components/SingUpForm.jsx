@@ -38,7 +38,7 @@ const SignUpForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(registerUser(formData)); // Despachar la acción de registro
+    dispatch(registerUser(formData));
   };
 
   return (
